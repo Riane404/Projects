@@ -8,7 +8,7 @@ i=input("Enter the cities: ")
 if i in list(cities):
     j=cities.index(i)
     k=citieslat[j]
-    print(i,":",k*69,"miles from equator")
+    print(i,":",abs(k)*69,"miles from equator")
 else:
     print("It is case sensitive or may not be in our list")
     exit()
