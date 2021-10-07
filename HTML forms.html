@@ -1,0 +1,178 @@
+﻿2<!DOCTYPE html>
+<html>
+<head>
+<title>Order form</title>
+<meta  name="viewport" content="width=device-width, initial-scale=1.0"  />
+<script  type="text/javascript">
+// JavaScript Document
+function feedback1() {
+	var a = document.getElementById("value1").value;
+	if(a.length == 0) {
+		document.getElementById("message1").innerHTML = "Please type in your first name";
+		document.getElementById("message1").style.color = "red";
+	}
+	else {
+		document.getElementById("message1").innerHTML = "It is valid";
+		document.getElementById("message1").style.color = "green";
+	}
+}
+function feedback2() {
+	var b = document.getElementById("value2").value;
+	if(b.length == 0) {
+		document.getElementById("message2").innerHTML = "Please type in your last name";
+		document.getElementById("message2").style.color = "orange";
+	}
+	else {
+		document.getElementById("message2").innerHTML = "It is valid";
+		document.getElementById("message2").style.color = "green";
+	}
+}
+function feedback3() {
+	var c = document.getElementById("amount").value;
+	if(c == "") {
+		document.getElementById("message3").innerHTML = "Please type in a number between 1-6";
+		document.getElementById("message3").style.color = "blue";
+	}
+	else if(c > 6) {
+		document.getElementById("message3").innerHTML = "The number you have typed is greater than 6, invalid";
+		document.getElementById("message3").style.color = "red";
+	}
+	
+	else {
+		document.getElementById("message3").innerHTML = "Valid";
+		document.getElementById("message3").style.color = "green";
+	}
+}
+function surprise() {
+	var d = document.getElementById("value1").value;
+	alert("Congratulations!  "+ d);
+}
+function goodtime() {
+	var f = document.getElementById("value2").value;
+	alert("Have a good day anyway " + f); 
+}
+function calculator() {
+	var g = parseInt(document.getElementById("unitp").value);
+ 	var h = parseInt(document.getElementById("amount").value);
+	var i = g*h;
+	document.getElementById("calculatem").innerHTML = "The total price for your purchases is $" + i;
+}
+</script>
+<style>
+@charset "utf-8";
+/* CSS Document */
+
+body {background-image:url(chocolate-cake.jpg); background-position:top right; background-repeat:no-repeat; background-size:cover; background-attachment:scroll;}
+div {color:#FF0000;}
+.pre { font-family:"Palatino Linotype", "Book Antiqua", Palatino, serif; text-align:center; font-size:200%; background-color:#CCCCCC; margin-left:450px; margin-right:450px; }
+.flav { font-weight:bold; font-family:"MS Serif", "New York", serif;}
+#ch { color:#660033;}
+#st {color:#FF0099;}
+#pi {color:#FFFF00;}
+#rv {color:#990033;}
+p.highlight
+#message1, #message2 {
+        color: #FFFFFF;
+        background-color: gray;
+    }
+a:hover {
+	background-color:antiquewhite;
+	text-decoration:none;
+	color:red;
+	font-weight:bold;
+	display:block;/*changes the 'a' tag to a block level element*/
+}
+a:active {
+	background-color:blue;
+	font-style:italic;
+	color:brown;
+	text-decoration:none;
+}
+a:visited {
+	text-decoration:none; 
+	background-color:black;
+	color:chartreuse;
+}
+section div:nth-child(2) {
+	background-color:yellow;
+	border:solid black 5px;
+	margin-right:1500px;
+	box-sizing:content-box;/*causes the browser to recognise max width of the div box till its content */
+	width:150px;
+	height:100px;
+	overflow:scroll;
+
+}
+div option:nth-child(2n) {
+	font-family:'Times New Roman', Times, serif;
+	background-color:aquamarine;
+	text-transform:capitalize;
+}
+div:nth-child(3)  > span {/*'>' equals direct child*/
+	background-color:brown;
+}
+* {/*'*' indicates that whatever specifications it gives will be applied to all elements with highest priority(no inheritance required).*/
+	font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+</style>
+</head>
+<body>
+<h1 class="pre"><mark>The Cake Shop</mark></h1>
+<h2 class="pre"><em><ins>Cake Order form</ins></em></h2>
+<form action="HTML.html">
+	<section>
+		<div>
+			<em>First name:</em><br><!--Text input-->
+			<input id="value1" onBlur="feedback1()" type="text" name="fname" required><span id="message1"></span><br>
+			<em>Last name:</em><br>
+			<input id="value2" onblur="feedback2()" type="text" name="lname" required><span id="message2"></span><br>
+		</div>
+		<div>
+			<em>Cake Flavor:</em><br><!--Radio buttons-->
+			<input type="radio" name="flavor" value="Chocolate" checked>
+			<span class="flav" id="ch">Chocolate</span>
+			<input type="radio" name="flavor" value="Strawberry"><span class="flav" id="st">Strawberry</span><br><span class="flav" id="pi">
+				<img src="maxresdefault.jpg" width="70" height="70" alt="chocolate"><img src="th.jpeg" width="70" height="70" alt="strawberry"><br>
+				<input type="radio" name="flavor" value="Pineapple">
+				Pineapple
+			</span><input type="radio" name="flavor" value="RedVelvet"><span class="flav" id="rv">Red Velvet</span><br>
+			<img src="pineapplecake.jpg" width="70" height="70" alt="pineapple"><img src="Red-Velvet-Cake-918x1024.jpg" width="70" height="70" alt="red velvet"><br>
+		</div>
+		<div>
+			<span><em>Additional Toppings you might need:(Optional)</em></span><br><!--Checkbox-->
+			<input type="checkbox" name="addmat" value="Almonds">Almonds<input type="checkbox" name="addmat" value="Pistachio">Pistachio<br>
+			<input type="checkbox" name="addmat" value="Raisins">Raisins<input type="checkbox" name="addmat" value="Cashew">Cashew<br><br>
+		</div>
+		<div>
+		<em>Quantity</em>
+		<input id="amount" placeholder="1-6" onBlur="feedback3()" type="number" name="quantity" min="1" max="6"><span id="message3"></span><br><br>
+		</div>
+		<div>
+		<em>Other treats:</em><!--Combobox-->
+		<select name="Treats">
+			<option value="none">None</option>
+			<option value="chips">Potato chips</option>
+			<option value="Puffs">Puffs</option>
+			<option value="muffins">Muffins</option>
+			<option value="donuts">Donuts</option>
+		</select><br><br>
+		</div>
+		<div>
+			<em>Birthday cake?</em><br><!--gives an alert when the mouse hovers over the "YES" or the "NO"-->
+			<span onMouseOver="surprise()">YES</span><br>
+			<span onMouseOver="goodtime()">NO</span><br><br>
+		</div>
+		<div>
+			<em>Unit Price:</em><input type="number" id="unitp" name="uprice" value="10" readonly><br><br>
+		</div>
+		<!-- Calculates the total price when the mouse is hovered over the text-->
+		<span onMouseOver="calculator()">Calculate total price</span>
+		<p id="calculatem"></p>
+		<input type="submit">
+	</section>
+</form>
+<p>If you have any queries regarding our service <a href="mailto:thecakeshop@shops.com?subject=Queries">Click here</a> to <span style="color:#06F">mail</span> us.</p>
+<p class="highlight">Thank you</p>
+</body>
+</html>
